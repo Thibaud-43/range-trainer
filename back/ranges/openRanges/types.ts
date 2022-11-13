@@ -6,7 +6,7 @@ export type Position =
   | "small-blind"
   | "big-blind";
 
-type Action = "open" | "call" | "fold";
+type Action = "open" | "call" | "fold" | "3bet";
 
 type ActionByPosition = {
   action: Action;
