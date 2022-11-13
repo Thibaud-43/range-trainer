@@ -1,4 +1,6 @@
-import { Button } from "@mui/material";
+import ActionButton from "./ActionButton";
+import Card from "./Card";
+import SpotLayout from "./SpotLayout";
 import { Position, RangeType, Spot } from "./types";
 
 type Props = {
@@ -7,13 +9,11 @@ type Props = {
     loading: boolean;
     error?:string;
 }
+
 const SpotContainer = ({fetchSpot, spot, loading, error}:Props) => {
     return (
       <div className="App">
-        {spot && <div>{JSON.stringify(spot)}</div>}
-        {loading && <div>loading ...</div>}
-        {error && !loading && <div>error</div>}
-        <Button onClick={()=>fetchSpot("open", "button")}>New Spot</Button>
+        <SpotLayout firstCard={<Card/>} secondCard={<Card/>} actionButtons={[<ActionButton/>, <ActionButton/>]}/>
       </div>
     );
   }
