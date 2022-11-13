@@ -34,6 +34,10 @@ type Props = {
   children: (fetchSpot: FetchSpot, spot: Spot | undefined, loading: boolean, error?: string )=>React.ReactNode
 }
 
+
+// NOTE POUR DOV : le rôle du dataLoader est de faire l'appel à l'api et de transmettre
+// les données au composant qu'il recoit des props (il n'appel pas le composant directement
+// car dans l'idée un data loader peut être réutiliser pour d'autres composatn qui ont besoin d'une certaine donnée)
 const SpotDataLoader = ({children}:Props) => {
     const {fetchSpot, fetchSpotResult}= useFetchSpot();
     const {data, error, loading} = fetchSpotResult;

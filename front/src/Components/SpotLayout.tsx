@@ -5,6 +5,9 @@ type Props = {
     secondCard: React.ReactNode
     actionButtons: React.ReactNode[]
 }
+
+// NOTE POUR DOV : le rôle du layout est le placement des composant uniquement.
+// il reçoit les composants à placer du container.
 const SpotLayout = ({firstCard, secondCard, actionButtons} :Props) => {
     return (
         <Box   display="flex" justifyContent="center"

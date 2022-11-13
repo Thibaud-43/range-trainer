@@ -1,6 +1,8 @@
 type Props = {
 
 }
+// TO DO
+
 const Card = ({}:Props) => {
     return (
       <div className="card">
