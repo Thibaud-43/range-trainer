@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
+import { useEffect, useState } from "react";
 import ActionButton from "./ActionButton";
 import Card from "./Card";
 import GenerateSpotButton from "./GeneraterSpotButton";
 import SpotLayout from "./SpotLayout";
-import { Position, RangeType, Spot } from "./types";
+import { Action, Position, RangeType, Spot } from "./types";
 
 type Props = {
   fetchSpot: (rangeType: RangeType, position: Position) => Promise<void>;
@@ -20,14 +21,23 @@ const SpotContainer = ({ fetchSpot, spot, loading, error }: Props) => {
     await fetchSpot("open", "button"); // TODO: 2 TextField from buttons
   };
 
-  console.log({ spot, loading, error });
+  const [response, setResponse] = useState<Action>();
+
+  const actions: Action[] = ["open", "call", "fold"]; // selon le rangeType
+  const responseOnClick = (action: Action) => () => {
+    return setResponse(action);
+  };
+
+  useEffect(() => {
+    console.log("response = ", response);
+  }, [response])
 
   return (
     <Box className="App">
       <SpotLayout
         firstCard={spot && <Card cardValue={spot.hand.firstCard} />}
         secondCard={spot && <Card cardValue={spot.hand.secondCard} />}
-        actionButtons={[<ActionButton />, <ActionButton />]}
+        actionButtons={actions.map((action, index) => <ActionButton key={index} action={action} responseOnClick={responseOnClick(action)} />)}
         generateSpotButton={
           !spot && <GenerateSpotButton generateSpotOnClick={generateSpotOnClick} />
         }

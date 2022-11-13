@@ -1,14 +1,16 @@
-import { Box } from "@mui/material";
+import { Button } from "@mui/material";
+import { Action } from "./types";
 
 type Props = {
-
+  action: Action;
+  responseOnClick: () => void;
 }
 // TO DO
-const ActionButton = ({ }: Props) => {
+const ActionButton = ({ action, responseOnClick }: Props) => {
   return (
-    <Box className="card">
-      action button
-    </Box>
+    <Button variant="contained" className="actionButton" onClick={responseOnClick} >
+      {action}
+    </Button >
   );
 }
 

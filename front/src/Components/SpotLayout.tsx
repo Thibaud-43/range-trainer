@@ -1,4 +1,4 @@
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 import React from "react";
 
 type Props = {
@@ -10,20 +10,22 @@ type Props = {
 
 // NOTE POUR DOV : le rôle du layout est le placement des composant uniquement.
 // il reçoit les composants à placer du container.
-const SpotLayout = ({firstCard, secondCard, actionButtons, generateSpotButton} :Props) => {
+const SpotLayout = ({ firstCard, secondCard, actionButtons, generateSpotButton }: Props) => {
     return (
-        <Box   display="flex" justifyContent="center"
-        alignItems="center" minHeight="100vh">
+        <Box display="flex" justifyContent="center"
+            alignItems="center" minHeight="100vh">
             <Grid container justifyContent="center"
-        alignItems="center" >
+                alignItems="center" >
                 <Grid item xs={6} border={1}>
-                   { firstCard}
+                    {firstCard}
                 </Grid>
                 <Grid item xs={6} border={1}>
-                   {secondCard }
+                    {secondCard}
                 </Grid>
-                <Grid item xs={12} border={1}>
-                    {actionButtons}
+                <Grid container item xs={12} border={1} justifyContent="center">
+                    <Stack direction="row" spacing={2}>
+                        {actionButtons}
+                    </Stack>
                 </Grid>
                 <Grid container item xs={12} border={1} marginTop={20} justifyContent="center" >
                     {generateSpotButton}
@@ -31,6 +33,6 @@ const SpotLayout = ({firstCard, secondCard, actionButtons, generateSpotButton} :
             </Grid>
         </Box>
     );
-  }
+}
 
 export default SpotLayout;
