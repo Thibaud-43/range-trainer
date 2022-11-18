@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+    back:
+        build:
+            context: ./back
+        ports:
+            - "8000:8000"
+    front:
+        build:
+            context: ./front
+        ports:
+            - "80:3000"
+    # nginx:
+    #     restart: always
+    #     build:
+    #         context: ./nginx
+    #     ports:
+    #         - "80:80"
