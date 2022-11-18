@@ -40,3 +40,5 @@ export type Spot = {
   hand: Hand;
   actionByPosition: ActionByPosition;
 };
+
+export type CardColor = "clubs" | "diamonds" | "spades" | "hearts";

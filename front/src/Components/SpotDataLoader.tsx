@@ -8,11 +8,11 @@ const useFetchSpot = () => {
   const [error, setError] = useState<string>()
   const [data, setData] = useState<Spot>()
   const [loading, setLoading] = useState<boolean>(false)
-  const fetchSpot = async (rangeType: RangeType, position: Position) => {
+  const fetchSpot = async (rangeType: RangeType, position?: Position) => {
     setLoading(true)
     try {
       const data = (await axios
-        .get<Spot>(`http://localhost:8000/?rangeType=${rangeType}&position=${position}`)).data
+        .get<Spot>(`http://localhost:8000/?rangeType=${rangeType}${position ? `&position=${position}` : ""}`)).data
       setData(data);
       setLoading(false);
     }
@@ -29,7 +29,7 @@ const useFetchSpot = () => {
   return { fetchSpot, fetchSpotResult }
 }
 
-export type FetchSpot = (rangeType: RangeType, position: Position) => Promise<void>;
+export type FetchSpot = (rangeType: RangeType, position?: Position) => Promise<void>;
 
 type Props = {
   children: (fetchSpot: FetchSpot, spot: Spot | undefined, loading: boolean, error?: string) => React.ReactNode
