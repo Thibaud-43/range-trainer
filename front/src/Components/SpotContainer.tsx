@@ -23,7 +23,6 @@ export const randomIntFromInterval = ({
   min: number;
   max: number;
 }): number => {
-  // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
@@ -48,43 +47,62 @@ const generateCardColor = (suited?: boolean)=>{
     return {cardOneColor, cardTwoColor};
   }
 }
-// NOTE POUR DOV : les props de ce composant viennent du data loader qui fait le call API
-// et qui fournit les données au container.
-// Le rôle du container est de contenir la logique du composant.
-const SpotContainer = ({ fetchSpot, spot, loading, error }: Props) => {
-  const generateSpotOnClick = useCallback(async () => {
-    await fetchSpot("open"); // TODO: 2 TextField from buttons
-  },[fetchSpot]);
 
-  const [response, setResponse] = useState<Action>();
-  const [wrongAnswer, setWrongAnswer] = useState<boolean>(false);
+const useSpotAnswer = () =>{
+  const [spotAnswer, setSpotAnswer] = useState<Action>();
 
-  const actions: Action[] = ["open", "call", "fold"]; // selon le rangeType
-  const responseOnClick = (action: Action) => () => {
-    return setResponse(action);
-  };
+  const answerToSpot = (action?: Action)=>()=>setSpotAnswer(action);
+  return {
+    spotAnswer,
+    answerToSpot,
+    resetAnswer: ()=>setSpotAnswer(undefined)
+  }
+}
 
+const useCheckAnswer = ( spotAnswer: Action | undefined, generateSpotOnClick:()=>void,resetAnswer: () => void, spot?:Spot) =>{
+  const [isWrongAnswer, setIsWrongAnswer] = useState<boolean>(false);
   useEffect(() => {
-    if (!spot || !response){
+    if (!spot || !spotAnswer){
       return;
     }
-    setWrongAnswer(false)
-    if (response === spot?.actionByPosition.action){
-      setResponse(undefined);
-      setWrongAnswer(false);
+    if (spotAnswer === spot?.actionByPosition.action){
+      setIsWrongAnswer(false)
+      resetAnswer();
       generateSpotOnClick();
     }
     else {
-      setResponse(undefined);
-      setWrongAnswer(true);
+      resetAnswer();
+      setIsWrongAnswer(true);
     }
-  }, [response,generateSpotOnClick,spot])
+  }, [spotAnswer,generateSpotOnClick,spot,resetAnswer])
 
-  const {cardOneColor, cardTwoColor} = generateCardColor(spot?.hand.suited)
+  return {isWrongAnswer, resetWrongAnswer: ()=>setIsWrongAnswer(false)}
+}
+
+const useSetCardsColor = (spot?:Spot)=>{
+  const [cardOneColor, setCardOneColor] = useState<CardColor>();
+  const [cardTwoColor, setCardTwoColor] = useState<CardColor>(); 
+  useEffect(() => {
+    const {cardOneColor, cardTwoColor} = generateCardColor(spot?.hand.suited)
+    setCardOneColor(cardOneColor);
+    setCardTwoColor(cardTwoColor);
+  }, [spot])
+
+  return {cardOneColor, cardTwoColor}
+}
+
+const SpotContainer = ({ fetchSpot, spot, loading, error }: Props) => {
+  const generateSpotOnClick = useCallback(async () => {
+    await fetchSpot("open"); 
+  },[fetchSpot]);
+  const {spotAnswer, answerToSpot, resetAnswer} = useSpotAnswer();
+  const {isWrongAnswer, resetWrongAnswer} = useCheckAnswer(spotAnswer, generateSpotOnClick, resetAnswer, spot);
+  const {cardOneColor, cardTwoColor} = useSetCardsColor(spot);
+  const actions: Action[] = ["open", "call", "fold"];
 
   const retryOnClick = ()=>{
-    setResponse(undefined);
-    setWrongAnswer(false);
+    resetAnswer();
+    resetWrongAnswer();
     generateSpotOnClick();
   }
 
@@ -92,10 +110,10 @@ const SpotContainer = ({ fetchSpot, spot, loading, error }: Props) => {
     <Box className="App">
       <SpotLayout
         position={spot && <Position position={spot.actionByPosition.position}/>}
-        wrongAnswer={wrongAnswer && <WrongAnswer onClick={retryOnClick}/>}
-        firstCard={spot && <Card cardValue={spot.hand.firstCard} cardColor={cardOneColor}/>}
-        secondCard={spot && <Card cardValue={spot.hand.secondCard} cardColor={cardTwoColor}/>}
-        actionButtons={wrongAnswer ? [] : actions.map((action, index) => <ActionButton key={index} action={action} responseOnClick={responseOnClick(action)} />)}
+        wrongAnswer={isWrongAnswer && <WrongAnswer onClick={retryOnClick}/>}
+        firstCard={spot && cardOneColor && <Card cardValue={spot.hand.firstCard} cardColor={cardOneColor}/>}
+        secondCard={spot && cardTwoColor && <Card cardValue={spot.hand.secondCard} cardColor={cardTwoColor}/>}
+        actionButtons={isWrongAnswer ? [] : actions.map((action, index) => <ActionButton key={index} action={action} responseOnClick={answerToSpot(action)} />)}
         generateSpotButton={
           !spot && <GenerateSpotButton generateSpotOnClick={generateSpotOnClick} />
         }
