@@ -12,7 +12,7 @@ const useFetchSpot = () => {
     setLoading(true)
     try {
       const data = (await axios
-        .get<Spot>(`http://back/?rangeType=${rangeType}${position ? `&position=${position}` : ""}`)).data
+        .get<Spot>(`/back/?rangeType=${rangeType}${position ? `&position=${position}` : ""}`)).data
       setData(data);
       setLoading(false);
     }
