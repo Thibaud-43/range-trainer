@@ -18,7 +18,7 @@ export const jacks: Range[] = [
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
@@ -39,11 +39,11 @@ export const jacks: Range[] = [
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
@@ -60,11 +60,11 @@ export const jacks: Range[] = [
       },
       {
         position: "cut-off",
-        action: "fold",
+        action: "open",
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
@@ -81,11 +81,11 @@ export const jacks: Range[] = [
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
-        action: "fold",
+        action: "open",
       },
       {
         position: "hi-jack",
@@ -106,7 +106,7 @@ export const jacks: Range[] = [
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
@@ -131,7 +131,7 @@ export const jacks: Range[] = [
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
@@ -222,7 +222,7 @@ export const jacks: Range[] = [
       },
       {
         position: "small-blind",
-        action: "fold",
+        action: "call",
       },
     ],
   },

@@ -22,7 +22,7 @@ export const three: Range[] = [
       },
       {
         position: "small-blind",
-        action: "fold",
+        action: "call",
       },
     ],
   },

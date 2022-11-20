@@ -6,7 +6,7 @@ export const five: Range[] = [
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
@@ -47,7 +47,7 @@ export const five: Range[] = [
       },
       {
         position: "small-blind",
-        action: "fold",
+        action: "call",
       },
     ],
   },
@@ -72,7 +72,7 @@ export const five: Range[] = [
       },
       {
         position: "small-blind",
-        action: "fold",
+        action: "call",
       },
     ],
   },

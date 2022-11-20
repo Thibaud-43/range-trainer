@@ -1,8 +1,58 @@
 import { Range } from "../types";
 
-export const five: Range[] = [
+export const seven: Range[] = [
   {
-    hand: { firstCard: "5", secondCard: "4", suited: false },
+    hand: { firstCard: "7", secondCard: "6", suited: false },
+    actionsByPositions: [
+      {
+        position: "button",
+        action: "open",
+      },
+      {
+        position: "cut-off",
+        action: "open",
+      },
+      {
+        position: "hi-jack",
+        action: "fold",
+      },
+      {
+        position: "lo-jack",
+        action: "fold",
+      },
+      {
+        position: "small-blind",
+        action: "call",
+      },
+    ],
+  },
+  {
+    hand: { firstCard: "7", secondCard: "5", suited: false },
+    actionsByPositions: [
+      {
+        position: "button",
+        action: "open",
+      },
+      {
+        position: "cut-off",
+        action: "fold",
+      },
+      {
+        position: "hi-jack",
+        action: "fold",
+      },
+      {
+        position: "lo-jack",
+        action: "fold",
+      },
+      {
+        position: "small-blind",
+        action: "call",
+      },
+    ],
+  },
+  {
+    hand: { firstCard: "7", secondCard: "4", suited: false },
     actionsByPositions: [
       {
         position: "button",
@@ -27,7 +77,7 @@ export const five: Range[] = [
     ],
   },
   {
-    hand: { firstCard: "5", secondCard: "3", suited: false },
+    hand: { firstCard: "7", secondCard: "3", suited: false },
     actionsByPositions: [
       {
         position: "button",
@@ -47,12 +97,12 @@ export const five: Range[] = [
       },
       {
         position: "small-blind",
-        action: "fold",
+        action: "call",
       },
     ],
   },
   {
-    hand: { firstCard: "5", secondCard: "2", suited: false },
+    hand: { firstCard: "7", secondCard: "2", suited: false },
     actionsByPositions: [
       {
         position: "button",
@@ -72,7 +122,7 @@ export const five: Range[] = [
       },
       {
         position: "small-blind",
-        action: "fold",
+        action: "call",
       },
     ],
   },

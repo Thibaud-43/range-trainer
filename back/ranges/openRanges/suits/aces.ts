@@ -1,8 +1,8 @@
 import { Range } from "../types";
 
-export const jacks: Range[] = [
+export const aces: Range[] = [
   {
-    hand: { firstCard: "J", secondCard: "10", suited: false },
+    hand: { firstCard: "A", secondCard: "K", suited: false },
     actionsByPositions: [
       {
         position: "button",
@@ -18,16 +18,16 @@ export const jacks: Range[] = [
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
-        action: "call",
+        action: "open",
       },
     ],
   },
   {
-    hand: { firstCard: "J", secondCard: "9", suited: false },
+    hand: { firstCard: "A", secondCard: "Q", suited: false },
     actionsByPositions: [
       {
         position: "button",
@@ -39,20 +39,20 @@ export const jacks: Range[] = [
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
-        action: "call",
+        action: "open",
       },
     ],
   },
   {
-    hand: { firstCard: "J", secondCard: "8", suited: false },
+    hand: { firstCard: "A", secondCard: "J", suited: false },
     actionsByPositions: [
       {
         position: "button",
@@ -60,15 +60,115 @@ export const jacks: Range[] = [
       },
       {
         position: "cut-off",
-        action: "fold",
+        action: "open",
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
+      },
+      {
+        position: "small-blind",
+        action: "open",
+      },
+    ],
+  },
+  {
+    hand: { firstCard: "A", secondCard: "10", suited: false },
+    actionsByPositions: [
+      {
+        position: "button",
+        action: "open",
+      },
+      {
+        position: "cut-off",
+        action: "open",
+      },
+      {
+        position: "hi-jack",
+        action: "open",
+      },
+      {
+        position: "lo-jack",
+        action: "open",
+      },
+      {
+        position: "small-blind",
+        action: "open",
+      },
+    ],
+  },
+  {
+    hand: { firstCard: "A", secondCard: "9", suited: false },
+    actionsByPositions: [
+      {
+        position: "button",
+        action: "open",
+      },
+      {
+        position: "cut-off",
+        action: "open",
+      },
+      {
+        position: "hi-jack",
+        action: "open",
+      },
+      {
+        position: "lo-jack",
+        action: "open",
+      },
+      {
+        position: "small-blind",
+        action: "open",
+      },
+    ],
+  },
+  {
+    hand: { firstCard: "A", secondCard: "8", suited: false },
+    actionsByPositions: [
+      {
+        position: "button",
+        action: "open",
+      },
+      {
+        position: "cut-off",
+        action: "open",
+      },
+      {
+        position: "hi-jack",
+        action: "open",
+      },
+      {
+        position: "lo-jack",
+        action: "open",
+      },
+      {
+        position: "small-blind",
+        action: "open",
+      },
+    ],
+  },
+  {
+    hand: { firstCard: "A", secondCard: "7", suited: false },
+    actionsByPositions: [
+      {
+        position: "button",
+        action: "open",
+      },
+      {
+        position: "cut-off",
+        action: "open",
+      },
+      {
+        position: "hi-jack",
+        action: "open",
+      },
+      {
+        position: "lo-jack",
+        action: "open",
       },
       {
         position: "small-blind",
@@ -77,23 +177,23 @@ export const jacks: Range[] = [
     ],
   },
   {
-    hand: { firstCard: "J", secondCard: "7", suited: false },
+    hand: { firstCard: "A", secondCard: "6", suited: false },
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
-        action: "fold",
+        action: "open",
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
@@ -102,23 +202,23 @@ export const jacks: Range[] = [
     ],
   },
   {
-    hand: { firstCard: "J", secondCard: "6", suited: false },
+    hand: { firstCard: "A", secondCard: "5", suited: false },
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
-        action: "fold",
+        action: "open",
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
@@ -127,23 +227,23 @@ export const jacks: Range[] = [
     ],
   },
   {
-    hand: { firstCard: "J", secondCard: "5", suited: false },
+    hand: { firstCard: "A", secondCard: "4", suited: false },
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
-        action: "fold",
+        action: "open",
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
@@ -152,23 +252,23 @@ export const jacks: Range[] = [
     ],
   },
   {
-    hand: { firstCard: "J", secondCard: "4", suited: false },
+    hand: { firstCard: "A", secondCard: "3", suited: false },
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
-        action: "fold",
+        action: "open",
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
@@ -177,52 +277,27 @@ export const jacks: Range[] = [
     ],
   },
   {
-    hand: { firstCard: "J", secondCard: "3", suited: false },
+    hand: { firstCard: "A", secondCard: "2", suited: false },
     actionsByPositions: [
       {
         position: "button",
-        action: "fold",
+        action: "open",
       },
       {
         position: "cut-off",
-        action: "fold",
+        action: "open",
       },
       {
         position: "hi-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "lo-jack",
-        action: "fold",
+        action: "open",
       },
       {
         position: "small-blind",
         action: "call",
-      },
-    ],
-  },
-  {
-    hand: { firstCard: "J", secondCard: "2", suited: false },
-    actionsByPositions: [
-      {
-        position: "button",
-        action: "fold",
-      },
-      {
-        position: "cut-off",
-        action: "fold",
-      },
-      {
-        position: "hi-jack",
-        action: "fold",
-      },
-      {
-        position: "lo-jack",
-        action: "fold",
-      },
-      {
-        position: "small-blind",
-        action: "fold",
       },
     ],
   },

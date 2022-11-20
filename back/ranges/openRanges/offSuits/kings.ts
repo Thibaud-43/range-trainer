@@ -1,6 +1,6 @@
 import { Range } from "../types";
 
-const pairs: Range[] = [
+export const kings: Range[] = [
   {
     hand: { firstCard: "K", secondCard: "Q", suited: false },
     actionsByPositions: [

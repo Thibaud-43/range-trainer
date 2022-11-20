@@ -1,8 +1,8 @@
 import { Range } from "../types";
 
-export const five: Range[] = [
+export const four: Range[] = [
   {
-    hand: { firstCard: "5", secondCard: "4", suited: false },
+    hand: { firstCard: "4", secondCard: "3", suited: false },
     actionsByPositions: [
       {
         position: "button",
@@ -27,7 +27,7 @@ export const five: Range[] = [
     ],
   },
   {
-    hand: { firstCard: "5", secondCard: "3", suited: false },
+    hand: { firstCard: "4", secondCard: "2", suited: false },
     actionsByPositions: [
       {
         position: "button",
@@ -47,32 +47,7 @@ export const five: Range[] = [
       },
       {
         position: "small-blind",
-        action: "fold",
-      },
-    ],
-  },
-  {
-    hand: { firstCard: "5", secondCard: "2", suited: false },
-    actionsByPositions: [
-      {
-        position: "button",
-        action: "fold",
-      },
-      {
-        position: "cut-off",
-        action: "fold",
-      },
-      {
-        position: "hi-jack",
-        action: "fold",
-      },
-      {
-        position: "lo-jack",
-        action: "fold",
-      },
-      {
-        position: "small-blind",
-        action: "fold",
+        action: "call",
       },
     ],
   },
